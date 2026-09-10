@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<meta name="description" content="Akiomida official account guide page">
+<title>Akiomida — Panduan Akun</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#070b1c;color:#e2e8f0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans",sans-serif;-webkit-font-smoothing:antialiased;display:flex;flex-direction:column;min-height:100vh}
+.agbar{display:flex;align-items:center;gap:9px;padding:12px 16px;background:rgba(15,23,42,.92);border-bottom:1.5px solid rgba(148,163,184,.22);flex:none;flex-wrap:wrap}
+.aglock{font-size:13px}
+.agurl{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;font-weight:700;color:#a5f3fc;background:rgba(2,6,23,.85);border:1.5px solid rgba(34,211,238,.35);border-radius:999px;padding:6px 14px;letter-spacing:.4px;word-break:break-all}
+.aglngs{margin-left:auto;display:flex;gap:5px}
+.aglngs button{background:rgba(2,6,23,.7);border:1.5px solid rgba(148,163,184,.3);color:#94a3b8;font-size:10px;font-weight:800;letter-spacing:.6px;border-radius:999px;padding:5px 9px;cursor:pointer;font-family:inherit}
+.aglngs button.on{color:#fde047;border-color:rgba(253,224,71,.55);background:rgba(253,224,71,.08)}
+.agpg{flex:1;overflow-y:auto;padding:26px 16px 46px;display:flex;flex-direction:column;gap:13px;align-items:center;width:100%}
+.agttl{color:#fde047;font-weight:800;font-size:21px;letter-spacing:1.5px;text-align:center}
+.agsub{color:#93c5fd;text-align:center;font-size:13px;line-height:1.7;max-width:560px}
+.agsec{width:min(560px,94vw);background:rgba(15,23,42,.55);border:1.5px solid rgba(148,163,184,.22);border-radius:14px;padding:14px 16px}
+.agsh{color:#fde047;font-weight:800;font-size:13.5px;margin-bottom:6px;letter-spacing:.3px}
+.agsp{color:#e2e8f0;font-size:12.5px;line-height:1.8}
+.agq{border-top:1px dashed rgba(148,163,184,.25);margin-top:9px;padding-top:9px}
+.agq:first-child{border-top:none;margin-top:0;padding-top:0}
+.agqh{color:#a5f3fc;font-weight:800;font-size:12.5px;margin-bottom:4px}
+.agqa{color:#cbd5e1;font-size:12px;line-height:1.75}
+.agnote{width:min(560px,94vw);text-align:center;color:#fca5a5;font-size:11.5px;font-weight:700;line-height:1.6}
+.agok{background:linear-gradient(180deg,#fde047,#facc15);color:#1c1917;font-weight:800;font-size:14px;letter-spacing:.4px;border:none;border-radius:999px;padding:13px 34px;cursor:pointer;box-shadow:0 6px 22px rgba(250,204,21,.28);font-family:inherit}
+.agok:active{transform:translateY(1px)}
+.agft{color:#64748b;font-size:10.5px;text-align:center;padding-bottom:6px}
+.agmodal{position:fixed;inset:0;z-index:50;display:none;align-items:center;justify-content:center;background:rgba(2,6,23,.82);padding:18px}
+.agmodal.on{display:flex}
+.agcard{position:relative;width:min(430px,94vw);background:#0b1122;border:1.5px solid rgba(253,224,71,.4);border-radius:18px;padding:22px 18px 18px;text-align:center;box-shadow:0 18px 60px rgba(0,0,0,.55)}
+.agx{position:absolute;top:8px;right:10px;background:none;border:none;color:#94a3b8;font-size:15px;font-weight:700;cursor:pointer;padding:4px 6px}
+.agmh{color:#fde047;font-weight:800;font-size:13px;letter-spacing:.6px;margin-bottom:12px}
+.agcode{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:30px;font-weight:800;letter-spacing:8px;color:#fde047;background:rgba(15,23,42,.85);border:1.5px solid rgba(253,224,71,.45);border-radius:14px;padding:14px 8px;margin-bottom:12px}
+.agmnote{color:#cbd5e1;font-size:11.5px;line-height:1.7;margin-bottom:14px}
+.agmrow{display:flex;gap:9px;justify-content:center;flex-wrap:wrap}
+.agcp{background:rgba(34,211,238,.12);border:1.5px solid rgba(34,211,238,.5);color:#a5f3fc;font-weight:800;font-size:12px;border-radius:999px;padding:10px 18px;cursor:pointer;font-family:inherit}
+.agcp:disabled{opacity:.45;cursor:default}
+.agback{display:inline-block;background:linear-gradient(180deg,#fde047,#facc15);color:#1c1917;font-weight:800;font-size:12px;border-radius:999px;padding:10px 20px;text-decoration:none}
+</style>
+</head>
+<body>
+<div class="agbar"><span class="aglock">🔒</span><span class="agurl">akiomida.com/account.html</span><span class="aglngs" id="agLngs"></span></div>
+<main class="agpg">
+<div class="agttl" id="agTtl"></div>
+<div class="agsub" id="agSub"></div>
+<section class="agsec"><div class="agsh" id="agS1H"></div><div class="agsp" id="agS1"></div></section>
+<section class="agsec"><div class="agsh" id="agS2H"></div><div class="agsp" id="agS2"></div></section>
+<section class="agsec"><div class="agsh" id="agS3H"></div><div class="agsp" id="agS3"></div></section>
+<section class="agsec"><div class="agsh" id="agS4H"></div><div class="agsp" id="agS4"></div></section>
+<section class="agsec"><div class="agsh" id="agS5H"></div><div id="agFaq"></div></section>
+<div class="agnote" id="agNote"></div>
+<button class="agok" id="agOk"></button>
+<div class="agft">Akiomida — <span id="agFt"></span></div>
+</main>
+<div class="agmodal" id="agModal">
+<div class="agcard">
+<button class="agx" id="agX">✕</button>
+<div class="agmh" id="agMh"></div>
+<div class="agcode" id="agCode">-----</div>
+<div class="agmnote" id="agMn"></div>
+<div class="agmrow"><button class="agcp" id="agCp"></button><a class="agback" id="agBack" href="akiomida.html"></a></div>
+</div>
+</div>
+<script>
+"use strict";
+(function(){
+var AB="ABCDEFGHJKMNPQRSTUVWXYZ23456789",LNG=["id","en","es","fr","zh"];
+var L={
+id:{title:"Akiomida — Panduan Akun",tt:"PANDUAN TERIMA AKUN",sub:"Halaman resmi panduan perpindahan akun — bacalah sampai bawah, lalu klik OK.",
+s1h:"Apa itu Kode Verifikasi?",s1:"Kode Verifikasi adalah kode yang kamu buat di perangkat BARU (perangkat penerima), lalu diberikan kepada pemilik akun di perangkat lama. Kode inilah yang menghubungkan kedua perangkat dalam proses pindah akun, sehingga proses hanya berjalan bila kedua pihak sepakat.",
+s2h:"Bagaimana alur pindah akun?",s2:"Pertama, klik OK di bagian bawah halaman ini, lalu masukkan kode buka yang muncul untuk membuka pembuatan Kode Verifikasi. Kedua, buat Kode Verifikasi dan kirimkan kepada pemilik akun di perangkat lama. Ketiga, pemilik akun memasukkan kode itu dan menukarkannya dengan ID Pindah. Keempat, tempel ID Pindah di panel Terima Akun di perangkatmu — akun langsung pindah ke perangkatmu.",
+s3h:"Aturan penting",s3:"Cukup satu aturan penting: pindah akun bersifat final — sekali dilakukan, tidak dapat dibatalkan atau diulang. Tidak ada yang perlu diatur atau diubah selain mengikuti langkah di halaman ini. Lanjutkan hanya bila kamu dan pemilik akun benar-benar yakin.",
+s4h:"Keamanan",s4:"Kode Verifikasi, kode buka, dan ID Pindah bersifat pribadi — bagikan hanya dengan pihak yang terlibat dalam pindah akun ini. Gunakan hanya fitur resmi di dalam permainan, dan abaikan cara-cara lain dari pihak mana pun.",
+s5h:"Pertanyaan yang sering ditanyakan",
+q1:"Di mana kode buka dimasukkan?",q1a:"Buka menu Skin Akiomida, lalu ketuk Terima Akun. Karena kamu sudah membuka halaman ini, kamu langsung dibawa ke langkah kode buka.",
+q2:"Kode buka saya ditolak, kenapa?",q2a:"Pastikan kode disalin tepat dari halaman ini dan dimasukkan pada hari yang sama. Bila masih ditolak, buka kembali Halaman Panduan dan ambil kode terbaru.",
+q3:"Apakah besok harus mengulang lagi?",q3a:"Panduan ini sengaja dibuat singkat agar setiap pindah akun selalu dimulai dengan pemahaman yang benar. Bila diminta lagi, ikuti saja langkahnya seperti biasa.",
+q4:"Apakah langkah ini aman?",q4a:"Aman. Halaman ini bagian resmi dari permainan dan hanya menampilkan panduan serta kode buka — tidak meminta data pribadimu.",
+note:"Kamu sudah tiba di bagian bawah panduan. Klik OK untuk menerima kode buka.",ok:"OK, Saya Mengerti",mh:"Kode buka hari ini",
+mn:"Berlaku hari ini saja. Masukkan kode ini di panel Terima Akun untuk membuka Kode Verifikasi.",
+cp:"Salin kode",cpd:"Tersalin!",back:"Kembali ke permainan",ft:"Halaman panduan resmi Akiomida",
+err:"Browser kamu tidak mendukung pembuatan kode. Coba browser modern seperti Chrome, Edge, atau Safari terbaru."},
+en:{title:"Akiomida — Account Guide",tt:"ACCOUNT RECEIVING GUIDE",sub:"Official account transfer guide page — read to the bottom, then tap OK.",
+s1h:"What is a Verification Code?",s1:"The Verification Code is a code you create on your NEW device (the receiving device), then give to the account owner on the old device. It connects the two devices during the account move, so the process only proceeds when both sides agree.",
+s2h:"How does the account move work?",s2:"First, tap OK at the bottom of this page, then enter the unlock code that appears to open Verification Code creation. Second, create the Verification Code and send it to the account owner on the old device. Third, the owner enters that code and receives a Transfer ID in return. Fourth, paste the Transfer ID in the Receive Account panel on your device — the account moves to your device.",
+s3h:"Important rules",s3:"Just one important rule: moving an account is final — once done, it cannot be canceled or repeated. Nothing needs to be set up or changed beyond following the steps on this page. Continue only if you and the account owner are absolutely sure.",
+s4h:"Security",s4:"The Verification Code, unlock code, and Transfer ID are private — share them only with the parties involved in this account move. Use only the official feature inside the game, and ignore any other method offered by anyone.",
+s5h:"Frequently asked questions",
+q1:"Where do I enter the unlock code?",q1a:"Open the Akiomida skin menu, then tap Receive Account. Because you have already opened this page, you are taken straight to the unlock code step.",
+q2:"My unlock code was rejected, why?",q2a:"Make sure the code is copied exactly from this page and entered on the same day. If it is still rejected, open the Account Guide page again and take the latest code.",
+q3:"Do I have to repeat this tomorrow?",q3a:"This guide is intentionally brief so every account move always starts with the right understanding. If it is asked again, simply follow the steps as usual.",
+q4:"Is this step safe?",q4a:"Yes. This page is an official part of the game and only shows the guide and the unlock code — it never asks for your personal data.",
+note:"You have reached the bottom of the guide. Tap OK to receive the unlock code.",ok:"OK, I Understand",mh:"Today's unlock code",
+mn:"Valid today only. Enter this code in the Receive Account panel to open the Verification Code.",
+cp:"Copy code",cpd:"Copied!",back:"Back to the game",ft:"Official Akiomida guide page",
+err:"Your browser does not support code generation. Try a modern browser such as the latest Chrome, Edge, or Safari."},
+es:{title:"Akiomida — Guía de Cuenta",tt:"GUÍA PARA RECIBIR UNA CUENTA",sub:"Página oficial de la guía de transferencia de cuenta: lee hasta el final y pulsa OK.",
+s1h:"¿Qué es un Código de Verificación?",s1:"El Código de Verificación es un código que creas en tu dispositivo NUEVO (el receptor) y que luego entregas al dueño de la cuenta en el dispositivo antiguo. Es lo que conecta ambos dispositivos durante la transferencia, de modo que el proceso solo continúa si ambas partes están de acuerdo.",
+s2h:"¿Cómo funciona la transferencia?",s2:"Primero, pulsa OK en la parte inferior de esta página e introduce el código de apertura que aparece para desbloquear la creación del Código de Verificación. Segundo, crea el Código de Verificación y envíalo al dueño de la cuenta en el dispositivo antiguo. Tercero, el dueño introduce ese código y recibe un ID de Transferencia a cambio. Cuarto, pega el ID de Transferencia en el panel Recibir cuenta de tu dispositivo: la cuenta pasa a tu dispositivo.",
+s3h:"Reglas importantes",s3:"Solo una regla importante: mover una cuenta es definitivo; una vez hecho, no se puede cancelar ni repetir. No hay nada que configurar ni cambiar más que seguir los pasos de esta página. Continúa solo si tú y el dueño de la cuenta están totalmente seguros.",
+s4h:"Seguridad",s4:"El Código de Verificación, el código de apertura y el ID de Transferencia son privados: compártelos solo con las partes involucradas en esta transferencia. Usa solo la función oficial dentro del juego e ignora cualquier otro método que ofrezcan.",
+s5h:"Preguntas frecuentes",
+q1:"¿Dónde se introduce el código de apertura?",q1a:"Abre el menú de skins de Akiomida y toca Recibir cuenta. Como ya abriste esta página, irás directo al paso del código de apertura.",
+q2:"Me rechazaron el código de apertura, ¿por qué?",q2a:"Asegúrate de copiar el código exactamente de esta página e introducirlo el mismo día. Si aún se rechaza, abre de nuevo la página de la Guía de Cuenta y toma el código más reciente.",
+q3:"¿Tengo que repetirlo mañana?",q3a:"Esta guía es breve a propósito, para que cada transferencia empiece siempre con la comprensión correcta. Si se vuelve a pedir, simplemente sigue los pasos como de costumbre.",
+q4:"¿Es seguro este paso?",q4a:"Sí. Esta página es parte oficial del juego y solo muestra la guía y el código de apertura; nunca pide tus datos personales.",
+note:"Has llegado al final de la guía. Pulsa OK para recibir el código de apertura.",ok:"OK, lo entiendo",mh:"Código de apertura de hoy",
+mn:"Válido solo hoy. Introduce este código en el panel Recibir cuenta para desbloquear el Código de Verificación.",
+cp:"Copiar código",cpd:"¡Copiado!",back:"Volver al juego",ft:"Página oficial de la guía de Akiomida",
+err:"Tu navegador no permite generar el código. Prueba un navegador moderno como Chrome, Edge o Safari actualizados."},
+fr:{title:"Akiomida — Guide de Compte",tt:"GUIDE DE RÉCEPTION DE COMPTE",sub:"Page officielle du guide de transfert de compte — lisez jusqu’en bas, puis appuyez sur OK.",
+s1h:"Qu’est-ce qu’un Code de Vérification ?",s1:"Le Code de Vérification est un code que vous créez sur votre NOUVEL appareil (l’appareil receveur), puis que vous donnez au propriétaire du compte sur l’ancien appareil. Il relie les deux appareils pendant le transfert : le processus ne se poursuit que si les deux parties sont d’accord.",
+s2h:"Comment se passe le transfert ?",s2:"D’abord, appuyez sur OK en bas de cette page, puis saisissez le code de déblocage qui apparaît pour ouvrir la création du Code de Vérification. Ensuite, créez le Code de Vérification et envoyez-le au propriétaire du compte sur l’ancien appareil. Puis, le propriétaire saisit ce code et reçoit un ID de Transfert en échange. Enfin, collez l’ID de Transfert dans le panneau Recevoir un compte de votre appareil : le compte rejoint votre appareil.",
+s3h:"Règles importantes",s3:"Une seule règle importante : déplacer un compte est définitif — une fois fait, cela ne peut être annulé ni refait. Rien à configurer ni à modifier en dehors des étapes de cette page. Continuez seulement si vous et le propriétaire du compte en êtes absolument sûrs.",
+s4h:"Sécurité",s4:"Le Code de Vérification, le code de déblocage et l’ID de Transfert sont privés : partagez-les uniquement avec les parties concernées par ce transfert. Utilisez uniquement la fonction officielle du jeu et ignorez toute autre méthode proposée.",
+s5h:"Questions fréquentes",
+q1:"Où saisir le code de déblocage ?",q1a:"Ouvrez le menu des skins Akiomida, puis touchez Recevoir un compte. Comme vous avez déjà ouvert cette page, vous arrivez directement à l’étape du code de déblocage.",
+q2:"Mon code de déblocage est refusé, pourquoi ?",q2a:"Assurez-vous de copier le code exactement depuis cette page et de le saisir le même jour. S’il est encore refusé, rouvrez la page Guide de Compte et prenez le code le plus récent.",
+q3:"Faut-il recommencer demain ?",q3a:"Ce guide est volontairement bref afin que chaque transfert commence toujours avec la bonne compréhension. S’il est redemandé, suivez simplement les étapes comme d’habitude.",
+q4:"Cette étape est-elle sûre ?",q4a:"Oui. Cette page fait partie intégrante du jeu et affiche uniquement le guide et le code de déblocage — elle ne demande jamais vos données personnelles.",
+note:"Vous êtes arrivé en bas du guide. Appuyez sur OK pour recevoir le code de déblocage.",ok:"OK, j’ai compris",mh:"Code de déblocage du jour",
+mn:"Valable aujourd’hui seulement. Saisissez ce code dans le panneau Recevoir un compte pour ouvrir le Code de Vérification.",
+cp:"Copier le code",cpd:"Copié !",back:"Retour au jeu",ft:"Page officielle du guide Akiomida",
+err:"Votre navigateur ne peut pas générer le code. Essayez un navigateur moderne comme Chrome, Edge ou Safari à jour."},
+zh:{title:"Akiomida — 账号指南",tt:"接收账号指南",sub:"官方账号转移指南页面——请读到最底部，然后点击 OK。",
+s1h:"什么是验证码？",s1:"验证码是你在新设备（接收方）上生成、然后交给旧设备上账号主人的代码。它把两台设备和双方连接起来共同完成转移，只有账号主人与接收方都同意并相互配合，转移流程才会继续进行。",
+s2h:"转移账号的流程是怎样的？",s2:"第一步，点击本页底部的 OK，然后输入弹出的解锁码，开启验证码的生成。第二步，生成验证码并发给旧设备上的账号主人。第三步，对方输入该代码后，会得到一个转移 ID。第四步，把转移 ID 粘贴到你设备的接收账号面板——账号就会转移到你的设备。",
+s3h:"重要规则",s3:"只有一条重要规则：账号转移是最终操作——一旦完成，无法取消也无法重来。除了按照本页步骤操作，无需设置或更改任何东西，也没有其他任何额外条件。只有当你和账号主人都完全确定时才继续。",
+s4h:"安全须知",s4:"验证码、解锁码和转移 ID 都属于私密信息——只与本次转移相关的双方分享。只使用游戏内的官方功能，忽略任何人提供的其他方法。这些信息不需要交给任何第三方，也不应被用于任何游戏之外的用途。",
+s5h:"常见问题",
+q1:"解锁码在哪里输入？",q1a:"打开 Akiomida 皮肤菜单，点击接收账号。因为你已经打开过本页面，会直接进入解锁码步骤。",
+q2:"解锁码被拒绝了，为什么？",q2a:"请确保代码是从本页面原样复制，并在同一天输入。如果仍被拒绝，请重新打开账号指南页面，获取最新代码。",
+q3:"明天需要重新操作吗？",q3a:"本指南特意保持简短，让每次账号转移都从正确的理解开始。如果再次要求，照常按步骤操作即可。",
+q4:"这一步安全吗？",q4a:"安全。本页面是游戏的官方组成部分，只显示指南和解锁码——绝不会索要你的个人数据。",
+note:"你已读到指南底部。点击 OK 以获取解锁码。",ok:"OK，我明白了",mh:"今日解锁码",
+mn:"仅今天有效。请在接收账号面板中输入此代码，以开启验证码。",
+cp:"复制代码",cpd:"已复制！",back:"返回游戏",ft:"Akiomida 官方指南页面",
+err:"你的浏览器不支持生成代码。请使用较新的现代浏览器，如最新版 Chrome、Edge 或 Safari。"}
+};
+function $(i){return document.getElementById(i)}
+function day(){var e=new Date();return Math.floor(new Date(e.getFullYear(),e.getMonth(),e.getDate()).getTime()/864e5)}
+function code(dn){return crypto.subtle.digest("SHA-256",new TextEncoder().encode("TRG1|"+dn)).then(function(h){var u=new Uint8Array(h),s="",i;for(i=0;i<5;i++)s+=AB.charAt(u[i]%31);return s})}
+function pick(){var q=null;try{q=new URLSearchParams(location.search).get("lang")}catch(e){}if(q&&L[q])return q;try{var s=localStorage.getItem("akmd_lang");if(s&&L[s])return s}catch(e){}var n=(navigator.language||"id").toLowerCase().split("-")[0];return L[n]?n:"id"}
+var cur=pick();
+function render(){var t=L[cur],i,f,d,a,b,ls,j;document.documentElement.lang=cur;document.title=t.title;$("agTtl").textContent=t.tt;$("agSub").textContent=t.sub;for(i=1;i<=4;i++){$("agS"+i+"H").textContent=t["s"+i+"h"];$("agS"+i).textContent=t["s"+i]}$("agS5H").textContent=t.s5h;f=$("agFaq");f.innerHTML="";[["q1","q1a"],["q2","q2a"],["q3","q3a"],["q4","q4a"]].forEach(function(p){d=document.createElement("div");d.className="agq";a=document.createElement("div");a.className="agqh";a.textContent=t[p[0]];b=document.createElement("div");b.className="agqa";b.textContent=t[p[1]];d.appendChild(a);d.appendChild(b);f.appendChild(d)});$("agNote").textContent=t.note;$("agOk").textContent=t.ok;$("agMh").textContent=t.mh;$("agMn").textContent=t.mn;$("agCp").textContent=t.cp;$("agBack").textContent=t.back;$("agFt").textContent=t.ft;ls=$("agLngs").querySelectorAll("button");for(j=0;j<ls.length;j++)ls[j].className=ls[j].getAttribute("data-l")===cur?"on":""}
+LNG.forEach(function(l){var b=document.createElement("button");b.textContent=l.toUpperCase();b.setAttribute("data-l",l);b.addEventListener("click",function(){cur=l;try{history.replaceState(null,"",location.pathname+"?lang="+l)}catch(e){}render()});$("agLngs").appendChild(b)});
+try{localStorage.setItem("akmd_trgv",JSON.stringify({d:day()}))}catch(e){}
+$("agOk").addEventListener("click",function(){var t=L[cur];code(day()).then(function(c){$("agCode").textContent=c;$("agMn").textContent=t.mn;$("agCp").disabled=!1;$("agModal").classList.add("on")},function(){$("agCode").textContent="-----";$("agMn").textContent=t.err;$("agCp").disabled=!0;$("agModal").classList.add("on")})});
+$("agX").addEventListener("click",function(){$("agModal").classList.remove("on")});
+$("agModal").addEventListener("click",function(e){if(e.target===this)this.classList.remove("on")});
+$("agCp").addEventListener("click",function(){var t=L[cur],b=this,kc=$("agCode").textContent,f=function(){b.textContent=t.cpd;setTimeout(function(){b.textContent=t.cp},1500)},fb=function(){var x=document.createElement("textarea");x.value=kc;x.style.position="fixed";x.style.opacity="0";document.body.appendChild(x);x.select();try{document.execCommand("copy");f()}catch(e){}document.body.removeChild(x)};if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(kc).then(f,fb);else fb()});
+render();
+})();
+</script>
+</body>
+</html>
