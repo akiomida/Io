@@ -1,1 +1,0 @@
-window.__AKAVG="YYsxPNmvr1eEl/PpaQkoQxwM6nHTs5jXLXvF3y0d9ovQuOFi93dbU0CYhxyiAywiP8PWE6FlNIluIPXrYIIP2wpESJ/e+BmDjohjutp9cQzlqwOYFqq2XyOjDZsgz0JSu3su4eXOu1xte+IiFOYDpVvzoZcuj0rhXmKizghTz4Ag3jfirSbc0gzeSQEeBw==";
