@@ -1,0 +1,20 @@
+# .htaccess — ATURAN CACHE UNTUK HOSTING APACHE / LITE_SPEED
+# Upload ke FOLDER ROOT hosting (berdampingan dgn index.html).
+# Tujuan (pembenahan #4): index.html selalu segar setelah rotasi akit.
+
+<IfModule mod_headers.c>
+  # HTML: selalu validasi ulang (segar setelah rotasi, tetap hemat via 304)
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+
+  # avg.js: jangan pernah di-cache (token pairing harus selalu terbaru)
+  <FilesMatch "avg\.js$">
+    Header set Cache-Control "no-store"
+  </FilesMatch>
+
+  # media.js: boleh cache panjang (URL berubah tiap rotasi: ?v=hash)
+  <FilesMatch "media\.js$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+</IfModule>
