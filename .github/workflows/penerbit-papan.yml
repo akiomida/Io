@@ -1,0 +1,33 @@
+name: penerbit-papan
+on:
+  schedule:
+    - cron: '3 18 * * *'   # 01:03 WIB harian
+  workflow_dispatch: {}
+permissions:
+  contents: write
+jobs:
+  terbitkan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Tarik dump wasit
+        env:
+          WASIT_URL: ${{ secrets.WASIT_URL }}
+          WASIT_ADMIN: ${{ secrets.WASIT_ADMIN }}
+        run: |
+          curl -fsS --max-time 60 "$WASIT_URL/api/wasit/dump?key=$WASIT_ADMIN" -o dump.json
+      - name: Bangun papan/top.json (top 50, urut total menang)
+        run: |
+          mkdir -p papan
+          jq '{v:1,t:.t,n:([.rows[]|select(.st)]|length),
+               rows:[.rows[]|select(.st)]|sort_by(-(.st.e//0))|.[0:50]
+               |map({pid:.pid,b:(.st.b//0),e:(.st.e//0),g:(.st.g//0),d:(.st.d//0),t:(.lps//0)})}' \
+            dump.json > papan/top.json
+          rm -f dump.json
+      - name: Komit (Pages terdeploy otomatis)
+        run: |
+          git config user.name "akmd-bot"
+          git config user.email "bot@akiomida.com"
+          git add papan/top.json
+          git diff --cached --quiet || git commit -m "papan harian"
+          git push
