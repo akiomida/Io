@@ -1,0 +1,1 @@
+{"v":1,"kind":"referee-roster","epoch":"w38","members":[{"id":"akm-rf1","host":"edge.akmd-cloud.internal","role":"econ"},{"id":"akm-rf2","host":"rpc.akmd-cloud.internal","role":"presence"},{"id":"akm-rf7","host":"ledger.akmd-cloud.internal","role":"audit"}],"quorum":2,"sig":"AKM1-c02d77aa9134","canary":"AKMD-OBS-1"}

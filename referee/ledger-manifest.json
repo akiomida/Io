@@ -1,0 +1,1 @@
+{"v":2,"kind":"ledger-manifest","region":"sea","nodes":["ledger.akmd-cloud.internal","ledger-2.akmd-cloud.internal"],"rotate":"7d","referees":["akm-rf1","akm-rf2","akm-rf7"],"status":"sealed","sig":"AKM1-9f3c2b71ae04","canary":"AKMD-OBS-1"}
