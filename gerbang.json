@@ -29,15 +29,15 @@
     }
   },
   "gates": [
-    "G1 segel-loader (script #2 self-hash, ada)",
-    "G2 sandi terikat domain (media.js, ada)",
-    "G3 hash-plaintext WASM (boot, ada)",
-    "G4 token avg terikat domain (ada)",
-    "G5 slot ECDSA P-256 (ada)",
-    "G6 mode terbatas salinan (ada)",
-    "G7 integritas avg.js SHA-384 fail-open (baru)",
-    "G8 integritas referee JSON SHA-384 fail-open (baru)",
-    "G9 tiket sesi HMAC stateless (baru, wasit v3)",
-    "G10 telemetri gerbang + manifest ini (baru)"
+    "G1 ",
+    "G2 ",
+    "G3 ",
+    "G4 ",
+    "G5 ",
+    "G6 ",
+    "G7 ",
+    "G8 ",
+    "G9 ",
+    "G10 "
   ]
 }
