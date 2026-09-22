@@ -1,0 +1,43 @@
+{
+  "v": 1,
+  "gen": "2026-09-22T04:18:07Z",
+  "files": {
+    "assets/js/avg.js": {
+      "gate": "G7",
+      "sha384": "ef8402bad181a676011d87a80c6beebaf9430c0fe9f30eab3adfe7bf35ed895c0e0dc792759ee6a3b1b02eaf8cb91277",
+      "len": 2263
+    },
+    "media.js": {
+      "gate": "G3",
+      "sha384": "696cd915f8dd7af272c606c042cb2ab6d276c2e3de78fc2e2d8d65ff0ca10f0bc2b18c9169a61bcc9efcc5d3f634c18e",
+      "len": 1455618
+    },
+    "referee/roster.json": {
+      "gate": "G8",
+      "sha384": "65df750e3a135ece16439c4a56ff780e89434e86cc239ba900d842bc67f2f0cf39d9e6d6d57f727b04ec7bcc4f39ce4c",
+      "len": 318
+    },
+    "referee/vault-status.json": {
+      "gate": "G8",
+      "sha384": "54a94feed2a0229583a227a3b7de02567f08681aaff19a5d481844ca47c8e3c7e9e245bc04aa00dc68c72ceea63116cb",
+      "len": 201
+    },
+    "referee/ledger-manifest.json": {
+      "gate": "G8",
+      "sha384": "9e9901d5c185cb9812dd418ca024b60cf1493dda1c9c9ef551856dca8706585bbc88b5751fab7406c47806ff4b437f97",
+      "len": 241
+    }
+  },
+  "gates": [
+    "G1 ",
+    "G2 ",
+    "G3 ",
+    "G4 ",
+    "G5 ",
+    "G6 ",
+    "G7 ",
+    "G8 ",
+    "G9 ",
+    "G10 "
+  ]
+}
