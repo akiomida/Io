@@ -1,0 +1,67 @@
+# ============================================================
+# ROTASI SLOT — VARIAN REPO ROOT (akiomida/Io) — REVISI 2
+# - path site/ -> root repo; terbit via commit & push.
+# - REVISI 2: git pull --rebase dipindah ke AWAL (sebelum ada
+#   file berubah). Versi lama gagal exit 125 karena pull
+#   dijalankan setelah slot digenerate = "unstaged changes".
+# Ganti SELURUH isi .github/workflows/rotasi-slot.yml dengan file ini.
+# ============================================================
+name: rotasi-slot
+
+on:
+  schedule:
+    - cron: '17 0,4,8,12,16,20 * * *'   # 07.17/11.17/15.17/19.17/23.17/03.17 WIB
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: rotasi-slot
+  cancel-in-progress: false
+
+jobs:
+  terbit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ambil repo (riwayat penuh agar rebase aman)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Selaraskan dengan main SEBELUM menyentuh file (anti exit 125)
+        run: |
+          git config user.name  "akmd-bot"
+          git config user.email "akmd-bot@users.noreply.github.com"
+          git config rebase.autoStash true
+          git pull --rebase origin main
+
+      - name: Siapkan Node 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Tulis kunci privat dari Secret (tidak pernah tersimpan di repo)
+        run: |
+          mkdir -p keys
+          printf '%s' "$SLOT_PRIV" > keys/akmd_slot_priv.jwk
+        env:
+          SLOT_PRIV: ${{ secrets.SLOT_PRIV }}
+
+      - name: Terbitkan slot segar (slot/ di root repo)
+        run: |
+          rm -f slot/s/*.js
+          node scripts/gen_slots.js --out slot --ttl 240 --window 2 --cap 20 --priv keys/akmd_slot_priv.jwk
+
+      - name: Segarkan manifest gerbang (idempoten, gagal lunak)
+        run: node gerbang/gen_gerbang.js --site . --patch --quiet || echo "gerbang dilewati"
+
+      - name: Hapus kunci dari runner
+        if: always()
+        run: rm -f keys/akmd_slot_priv.jwk
+
+      - name: Commit & dorong (Pages ikut ter-deploy otomatis)
+        run: |
+          git add slot gerbang.json index.html
+          git commit -m "rotasi slot otomatis $(date -u +'%Y-%m-%d %H:%M UTC')" || echo "tidak ada perubahan"
+          git push
