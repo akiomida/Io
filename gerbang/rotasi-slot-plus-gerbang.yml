@@ -1,0 +1,81 @@
+# ============================================================
+# ROTASI SLOT + GERBANG — VARIAN REPO ROOT (akiomida.com)
+# SAMA PERSIS dengan rotasi-slot.yml yang SUDAH HIJAU, plus
+# SATU langkah baru: segarkan manifest gerbang (idempoten).
+#
+# INI OPSIONAL. Kalau tidak dipasang, gerbang G7-G10 tetap
+# bekerja — manifest hanya basi kalau avg.js/media.js/referee
+# diubah manual (efeknya: telemetri flag, BUKAN game rusak,
+# karena semua gerbang baru fail-open).
+#
+# Perubahan dari versi hijau:
+#   1. Langkah "Segarkan manifest gerbang" setelah slot terbit.
+#   2. git add menambahkan gerbang.json + index.html.
+# ============================================================
+name: rotasi-slot
+
+on:
+  schedule:
+    - cron: '17 0,4,8,12,16,20 * * *'   # 07.17/11.17/15.17/19.17/23.17/03.17 WIB
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: rotasi-slot
+  cancel-in-progress: false
+
+jobs:
+  terbit:
+    runs-on: ubuntu-latest
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      CF_PROJECT: ${{ vars.CF_PROJECT }}
+      DEPLOY_CF: ${{ vars.DEPLOY_CF }}
+    steps:
+      - name: Ambil repo (riwayat penuh agar rebase aman)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Siapkan Node 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Tulis kunci privat dari Secret (tidak pernah tersimpan di repo)
+        run: |
+          mkdir -p keys
+          printf '%s' "$SLOT_PRIV" > keys/akmd_slot_priv.jwk
+        env:
+          SLOT_PRIV: ${{ secrets.SLOT_PRIV }}
+
+      - name: Terbitkan slot segar (slot/ di root repo)
+        run: |
+          rm -f slot/s/*.js
+          node scripts/gen_slots.js --out slot --ttl 240 --window 2 --cap 20 --priv keys/akmd_slot_priv.jwk
+
+      - name: Segarkan manifest gerbang (idempoten, gagal lunak)
+        run: node scripts/gen_gerbang.js --site . --patch --quiet || echo "gerbang dilewati"
+
+      - name: Hapus kunci dari runner
+        if: always()
+        run: rm -f keys/akmd_slot_priv.jwk
+
+      - name: Commit & dorong (GitHub Pages ikut ter-deploy otomatis)
+        run: |
+          git config user.name  "akmd-bot"
+          git config user.email "akmd-bot@users.noreply.github.com"
+          git pull --rebase origin main
+          git add slot gerbang.json index.html
+          git commit -m "rotasi slot otomatis $(date -u +'%Y-%m-%d %H:%M UTC')" || echo "tidak ada perubahan"
+          git push
+
+      - name: Deploy ke Cloudflare Pages (hanya jika DEPLOY_CF=1)
+        if: env.DEPLOY_CF == '1' && env.CLOUDFLARE_API_TOKEN != '' && env.CF_PROJECT != ''
+        run: |
+          mkdir -p /tmp/dist
+          tar -c --exclude=./.git --exclude=./.github --exclude=./keys . | tar -x -C /tmp/dist
+          npx --yes wrangler@latest pages deploy /tmp/dist --project-name="$CF_PROJECT" --branch=main
