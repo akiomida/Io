@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /dev/
+Disallow: /akiomida-fix/dev/
+
+Sitemap: https://akiomida.com/sitemap.xml
